@@ -1,0 +1,31 @@
+name: bump-formulae
+
+on:
+  schedule:
+    # Every 3 hours
+    - cron: "0 */3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  bump:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Tap this repo
+        run: brew tap birkneralex/tap "$(pwd)"
+
+      - name: Bump outdated formulae
+        uses: Homebrew/actions/bump-formulae@master
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tap: birkneralex/tap
+          formulae: silo
+          livecheck: true

@@ -1,0 +1,24 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Tap this repo
+        run: brew tap birkneralex/tap "$(pwd)"
+
+      - run: brew style --formula Formula/
+      - run: brew audit --strict --online Formula/*.rb
+      - run: brew install --formula Formula/*.rb
+      - run: brew test Formula/*.rb
