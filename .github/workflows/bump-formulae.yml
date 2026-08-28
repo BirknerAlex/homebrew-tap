@@ -25,10 +25,7 @@ jobs:
           mkdir -p "$(dirname "$tap_dir")"
           ln -s "$(pwd)" "$tap_dir"
 
-      - name: Bump outdated formulae
-        uses: Homebrew/actions/bump-formulae@master
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          tap: birkneralex/tap
-          formulae: silo
-          livecheck: true
+      - name: Bump silo if a new release is out
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: .github/scripts/bump-silo.sh
