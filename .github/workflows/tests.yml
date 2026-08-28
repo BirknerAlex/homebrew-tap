@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Set up Homebrew
-        uses: Homebrew/actions/setup-homebrew@master
+        uses: Homebrew/actions/setup-homebrew@1f8e202ffddf94def7f42f6fa3a482e821489f9c # 2026.07.10.1
 
       - name: Tap this repo
         run: |
@@ -27,7 +27,7 @@ jobs:
           names="$(for f in Formula/*.rb; do basename "$f" .rb; done | sed 's/^/birkneralex\/tap\//' | tr '\n' ' ')"
           echo "names=$names" >> "$GITHUB_OUTPUT"
 
-      - run: brew style --formula Formula/
+      - run: brew style --formula ${{ steps.formulae.outputs.names }}
       - run: brew audit --strict --online ${{ steps.formulae.outputs.names }}
       - run: brew install --formula ${{ steps.formulae.outputs.names }}
       - run: brew test ${{ steps.formulae.outputs.names }}
