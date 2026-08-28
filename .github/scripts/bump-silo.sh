@@ -71,6 +71,7 @@ brew audit --strict --online "birkneralex/tap/silo"
 brew install --formula "birkneralex/tap/silo"
 brew test "birkneralex/tap/silo"
 
+gh auth setup-git
 git config user.name "github-actions[bot]"
 git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 git checkout -b "$branch"
