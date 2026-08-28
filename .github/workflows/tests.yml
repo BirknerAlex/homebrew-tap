@@ -16,9 +16,18 @@ jobs:
         uses: Homebrew/actions/setup-homebrew@master
 
       - name: Tap this repo
-        run: brew tap birkneralex/tap "$(pwd)"
+        run: |
+          tap_dir="$(brew --repository)/Library/Taps/birkneralex/homebrew-tap"
+          mkdir -p "$(dirname "$tap_dir")"
+          ln -s "$(pwd)" "$tap_dir"
+
+      - name: List formulae
+        id: formulae
+        run: |
+          names="$(for f in Formula/*.rb; do basename "$f" .rb; done | sed 's/^/birkneralex\/tap\//' | tr '\n' ' ')"
+          echo "names=$names" >> "$GITHUB_OUTPUT"
 
       - run: brew style --formula Formula/
-      - run: brew audit --strict --online Formula/*.rb
-      - run: brew install --formula Formula/*.rb
-      - run: brew test Formula/*.rb
+      - run: brew audit --strict --online ${{ steps.formulae.outputs.names }}
+      - run: brew install --formula ${{ steps.formulae.outputs.names }}
+      - run: brew test ${{ steps.formulae.outputs.names }}

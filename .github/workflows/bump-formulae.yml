@@ -20,7 +20,10 @@ jobs:
         uses: Homebrew/actions/setup-homebrew@master
 
       - name: Tap this repo
-        run: brew tap birkneralex/tap "$(pwd)"
+        run: |
+          tap_dir="$(brew --repository)/Library/Taps/birkneralex/homebrew-tap"
+          mkdir -p "$(dirname "$tap_dir")"
+          ln -s "$(pwd)" "$tap_dir"
 
       - name: Bump outdated formulae
         uses: Homebrew/actions/bump-formulae@master
