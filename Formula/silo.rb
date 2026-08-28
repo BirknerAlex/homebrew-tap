@@ -1,8 +1,12 @@
 class Silo < Formula
   desc "Self-hosted package registry for RPM, Alpine APK, and npm"
   homepage "https://github.com/BirknerAlex/silo"
-  version "0.4.0"
   license "MIT"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   on_macos do
     if Hardware::CPU.arm?
@@ -22,11 +26,6 @@ class Silo < Formula
       url "https://github.com/BirknerAlex/silo/releases/download/v0.4.0/silo-v0.4.0-x86_64-unknown-linux-musl.tar.gz"
       sha256 "9e70d483eed8e627940e94bb7fe8f3c7f832d8d6a735c29dedba5c4ba49b360c"
     end
-  end
-
-  livecheck do
-    url :stable
-    strategy :github_latest
   end
 
   def install
