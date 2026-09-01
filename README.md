@@ -6,8 +6,10 @@ Personal Homebrew tap.
 
 ```
 brew tap birkneralex/tap
-brew install silo
+brew install birkneralex/tap/silo
 ```
+
+`brew install silo` on its own resolves to homebrew-core's unrelated `silo` formula, not this tap's — the fully qualified `tap/formula` form is required to disambiguate.
 
 ## Formulae
 
