@@ -52,7 +52,7 @@ for target in "${TARGETS[@]}"; do
   old_shas+=("$old_sha")
 done
 
-sed -i '' "s/v${current_version}/v${latest_version}/g" "$FORMULA"
+sed -i.bak "s/v${current_version}/v${latest_version}/g" "$FORMULA" && rm -f "$FORMULA.bak"
 
 for i in "${!TARGETS[@]}"; do
   target="${TARGETS[$i]}"
@@ -62,7 +62,7 @@ for i in "${!TARGETS[@]}"; do
     echo "::error::missing checksum for $asset"
     exit 1
   fi
-  sed -i '' "s/${old_shas[$i]}/${sha}/" "$FORMULA"
+  sed -i.bak "s/${old_shas[$i]}/${sha}/" "$FORMULA" && rm -f "$FORMULA.bak"
 done
 
 echo "Validating bumped formula"

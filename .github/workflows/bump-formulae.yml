@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   bump:
-    runs-on: macos-latest
+    runs-on: homebrew-tap
     steps:
       - uses: actions/checkout@v4
 
