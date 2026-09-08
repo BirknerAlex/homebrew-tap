@@ -25,6 +25,11 @@ jobs:
           mkdir -p "$(dirname "$tap_dir")"
           ln -s "$(pwd)" "$tap_dir"
 
+      # GitHub-hosted runners ship gh preinstalled; this self-hosted one
+      # (ghcr.io/actions/actions-runner, bare Ubuntu) doesn't.
+      - name: Install gh
+        run: brew install gh
+
       - name: Bump silo if a new release is out
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
