@@ -1,6 +1,6 @@
 cask "kubyl" do
-  version "0.2.5"
-  sha256 "fc5874e3df2425c607e3ed832f816864943e1396cca5f4162ceebad06a07502e"
+  version "0.3.1"
+  sha256 "38c5329f1d1fbbb0eb891ae7aefb8231251826aaf28b26b652fe373544c0e5bf"
 
   url "https://github.com/BirknerAlex/kubyl/releases/download/v#{version}/kubyl-#{version}-macos-universal.dmg"
   name "Kubyl"
@@ -12,7 +12,7 @@ cask "kubyl" do
     strategy :github_latest
   end
 
-  depends_on macos: :big_sur
+  depends_on :macos
 
   app "Kubyl.app"
 
