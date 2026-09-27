@@ -15,6 +15,12 @@ brew install birkneralex/tap/silo
 
 - [`silo`](Formula/silo.rb) — self-hosted package registry for RPM, Alpine APK, and npm ([source](https://github.com/BirknerAlex/silo))
 
+## Casks
+
+- [`kubyl`](Casks/kubyl.rb) — native Kubernetes desktop client ([source](https://github.com/BirknerAlex/kubyl))
+
+Casks install the same way, e.g. `brew install --cask birkneralex/tap/kubyl`.
+
 ## Auto-update
 
 `.github/workflows/bump-formulae.yml` runs on a schedule (and can be triggered manually) and uses `brew bump-formula-pr`'s livecheck integration to open a PR whenever an upstream repo cuts a new release. `.github/workflows/tests.yml` audits and installs every formula on push/PR to catch breakage before merge.
