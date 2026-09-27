@@ -29,3 +29,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: .github/scripts/bump-silo.sh
+
+      - name: Bump kubyl if a new release is out
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: .github/scripts/bump-kubyl.sh
