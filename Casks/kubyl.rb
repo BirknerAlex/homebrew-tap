@@ -1,6 +1,6 @@
 cask "kubyl" do
-  version "0.3.5"
-  sha256 "8ce7dbd9cc7f9650cc8f9b4390d921c861e32bb806121252336ed4815e8d009b"
+  version "0.3.6"
+  sha256 "f59740ee05b410e3b0af275f9b912816a73fec89601ae078bc010dda7a168188"
 
   url "https://github.com/BirknerAlex/kubyl/releases/download/v#{version}/kubyl-#{version}-macos-universal.dmg"
   name "Kubyl"
