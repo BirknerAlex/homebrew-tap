@@ -10,21 +10,21 @@ class Silo < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/BirknerAlex/silo/releases/download/v0.15.0/silo-v0.15.0-aarch64-apple-darwin.tar.gz"
-      sha256 "86ee2f1f52a4c13042915d89275f84a54c006174da814398c4f129aba3466463"
+      url "https://github.com/BirknerAlex/silo/releases/download/v0.16.0/silo-v0.16.0-aarch64-apple-darwin.tar.gz"
+      sha256 "b0e9ae4f27369d3621ca4f44bc1f1376158bdc8a381c06f4673555ed647393c9"
     else
-      url "https://github.com/BirknerAlex/silo/releases/download/v0.15.0/silo-v0.15.0-x86_64-apple-darwin.tar.gz"
-      sha256 "7a08c5dfe3592a03c2cd253625d505f7bc940f3bfbf1c94e2bef92f84c6560c5"
+      url "https://github.com/BirknerAlex/silo/releases/download/v0.16.0/silo-v0.16.0-x86_64-apple-darwin.tar.gz"
+      sha256 "e19a07b6cff620a3f42e7a53034a626a41b8169e8d3f1769f94c60e7abc70d55"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/BirknerAlex/silo/releases/download/v0.15.0/silo-v0.15.0-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "e70f3cf83962cf01919870df75299bd1ebb81689951cbc0bd054352eac60dcc1"
+      url "https://github.com/BirknerAlex/silo/releases/download/v0.16.0/silo-v0.16.0-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "48df24fcee68c38a79a4c5c58b619ef2a669c5650c546f08c1acbab8ef154cb5"
     else
-      url "https://github.com/BirknerAlex/silo/releases/download/v0.15.0/silo-v0.15.0-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "66379a3e178229fea3735349dd10b18d09947c9511e257faadc9e8e49cacdace"
+      url "https://github.com/BirknerAlex/silo/releases/download/v0.16.0/silo-v0.16.0-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "9671dd3831ff743d6d0d396c338b75caf7c7c2cf69acb8d72ab349e0d44bb455"
     end
   end
 
